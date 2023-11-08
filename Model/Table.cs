@@ -35,9 +35,15 @@ namespace Restaurant.Model
             set { _dishes = value; OnPropertyChanged(nameof(Dishes)); }
         }
 
-        private int Bill{
+        public int Bill{
             get { return _bill; }
             set { _bill = value; OnPropertyChanged(nameof(Bill)); }
+        }
+
+        public override string ToString()
+        {
+            //return base.ToString();
+            return $"{Id}";
         }
     }
 }

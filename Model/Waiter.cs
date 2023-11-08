@@ -44,5 +44,11 @@ namespace Restaurant.Model
             get { return _salary; } 
             set { _salary = value; OnPropertyChanged(nameof(Salary)); } 
         }
+
+        public override string ToString()
+        {
+            //return base.ToString();
+            return $"{Id} {Name} {SecName} {ThirdName}";
+        }
     }
 }

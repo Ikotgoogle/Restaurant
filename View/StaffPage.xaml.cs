@@ -5,7 +5,7 @@ namespace Restaurant.View
     /// <summary>
     /// Логика взаимодействия для StaffPage.xaml
     /// </summary>
-    public partial class StaffPage : Page
+    public partial class StaffPage : ContentControl
     {
         public StaffPage()
         {

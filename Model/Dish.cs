@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurant.Model
+﻿namespace Restaurant.Model
 {
     public class Dish : PropertyChangedClass
     {
@@ -71,6 +64,12 @@ namespace Restaurant.Model
         {
             get { return _dishPrice; }
             set { _dishPrice = value; OnPropertyChanged(nameof(DishPrice)); }
+        }
+
+        public override string ToString()
+        {
+            //return base.ToString();
+            return $"{DishId} {DishName} {DishType}";
         }
     }
 }

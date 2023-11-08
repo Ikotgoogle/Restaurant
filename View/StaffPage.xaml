@@ -1,12 +1,11 @@
-﻿<Page x:Class="Restaurant.View.StaffPage"
+﻿<ContentControl x:Class="Restaurant.View.StaffPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Restaurant.View"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="850"
-      Title="StaffPage">
+      d:DesignHeight="600" d:DesignWidth="850">
 
     <Grid Background="Beige">
         <Grid.ColumnDefinitions>
@@ -20,15 +19,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Image Source="/images/lupa.png" HorizontalAlignment="Left"/>
-            <TextBox Margin="13" Width="270" HorizontalAlignment="Right"/>
+            <TextBox Margin="13" Width="270" HorizontalAlignment="Right" Text="{Binding FindingWaiterText, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <ListView Grid.Row="1" Margin="10" Background="AntiqueWhite">
+            <ListView Grid.Row="1" Margin="10" Background="AntiqueWhite" ItemsSource="{Binding FoundWaiters}" SelectedItem="{Binding SelectedWaiter}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID"/>
-                        <GridViewColumn Header="Фамилия"/>
-                        <GridViewColumn Header="Имя"/>
-                        <GridViewColumn Header="Отчество"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding SecName, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding ThirdName, UpdateSourceTrigger=PropertyChanged}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -55,4 +54,4 @@
         </Grid>
         
     </Grid>
-</Page>
+</ContentControl>

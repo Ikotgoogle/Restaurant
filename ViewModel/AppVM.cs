@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
@@ -37,7 +38,7 @@ namespace Restaurant.ViewModel
         public Table SelectedTable
         {
             get => selectedTable;
-            set { selectedTable = value; OnPropertyChanged(nameof(SelectedTable)); }
+            set { selectedTable = value; OnPropertyChanged(nameof(SelectedTable)); OnPropertyChanged(nameof(DishList)); }
         }
         #endregion
         #region Searching 
@@ -67,15 +68,6 @@ namespace Restaurant.ViewModel
         {
             get => addingDishText;
             set { addingDishText = value; OnPropertyChanged(nameof(AddingDishText)); }
-        }
-        #endregion
-
-        public string DishTitle{
-            get{
-                if (selectedDish != null){
-                    return selectedDish.DishName;
-                } else return "";
-            }
         }
 
        /* public int NumsPerson{
@@ -122,7 +114,35 @@ namespace Restaurant.ViewModel
             }
         }
 
+        public ObservableCollection<Dish> DishList{
+            get{
+                if(selectedTable != null){
+                    return SelectedTable.Dishes;
+                } else return new ObservableCollection<Dish>();
+            }
+        }
+        #endregion
+        #region commands
 
+        private RelayCommand addDish;
+        public RelayCommand AddDish{
+            get {
+                return addDish ??
+                    (addDish = new RelayCommand(obj => {
+                        if (selectedTable == null) { MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning); }
+                        else { selectedTable.Dishes.Add(obj as Dish); }}));
+            }
+        }
+
+        private RelayCommand deleteDish;
+        public RelayCommand DeleteDish{
+            get {
+                return deleteDish ?? (deleteDish = new RelayCommand(obj => {
+                    selectedTable.Dishes.Remove(obj as Dish); }));
+            }
+        }
+
+        #endregion
         #region DataBase
         public AppVM()
         {
@@ -155,7 +175,7 @@ namespace Restaurant.ViewModel
             };
 
             Tables = new ObservableCollection<Table> {
-                new Table { Id = 0, VisitorNum = 0, Dishes = { }, Bill = 0 },
+                new Table { Id = 0, VisitorNum = 2, Dishes = { Dishes[0], Dishes[7] }, Bill = 0 },
                 new Table { Id = 1, VisitorNum = 0, Dishes = { }, Bill = 0 },
                 new Table { Id = 2, VisitorNum = 0, Dishes = { }, Bill = 0 },
                 new Table { Id = 3, VisitorNum = 0, Dishes = { }, Bill = 0 },

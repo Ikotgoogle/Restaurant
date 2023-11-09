@@ -31,18 +31,18 @@
             </ListView.View>
         </ListView>
 
-        <TextBlock Text="awd" FontSize="30" FontWeight="DemiBold" Grid.Column="1" HorizontalAlignment="Center"/>
-        <ListView FontSize="12" Grid.Column="1" Grid.Row="1" Margin="10" Background="AntiqueWhite" >
+        <TextBlock DataContext="{Binding SelectedTable}" Text="{Binding Id}" FontSize="30" FontWeight="DemiBold" Grid.Column="1" HorizontalAlignment="Center"/>
+        <ListView ItemsSource="{Binding DishList}" x:Name="TableOrder" FontSize="12" Grid.Column="1" Grid.Row="1" Margin="10" Background="AntiqueWhite">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" Width="25"/>
-                    <GridViewColumn Header="Название блюда" Width="150"/>
-                    <GridViewColumn Header="Стоимость" Width="68"/>
+                    <GridViewColumn Header="Название блюда" DisplayMemberBinding="{Binding DishName, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+                    <GridViewColumn Header="Стоимость" DisplayMemberBinding="{Binding DishPrice, UpdateSourceTrigger=PropertyChanged}" Width="68"/>
                     <GridViewColumn Width="40">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Border>
-                                    <Button>-</Button>
+                                    <Button Command="{Binding ElementName=TableOrder, Path=DataContext.DeleteDish}" CommandParameter="{Binding}" FontWeight="Medium" Width="15">-</Button>
                                 </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -56,7 +56,7 @@
 
         <Image Source="/images/lupa.png" HorizontalAlignment="Right" Grid.Column="2"/>
         <TextBox Margin="13" Width="200" HorizontalAlignment="Left" Grid.Column="2" Text="{Binding AddingDishText, UpdateSourceTrigger=PropertyChanged}"/>
-        <ListView FontSize="12" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="AntiqueWhite" ItemsSource="{Binding FoundDishToAdd}">
+        <ListView ItemsSource="{Binding FoundDishToAdd}" FontSize="12" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="AntiqueWhite">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding DishId, UpdateSourceTrigger=PropertyChanged}"/>
@@ -67,7 +67,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Border>
-                                    <Button>+</Button>
+                                    <Button Command="{Binding ElementName=TableOrder, Path=DataContext.AddDish}" CommandParameter="{Binding}" FontWeight="Medium" Width="15">+</Button>
                                 </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

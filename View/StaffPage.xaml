@@ -33,7 +33,7 @@
             </ListView>
         </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" DataContext="{Binding SelectedWaiter}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.6*"/>
                 <ColumnDefinition/>
@@ -42,13 +42,13 @@
             <Image Source="/images/person1.png" VerticalAlignment="Top" Margin="10"/>
             <StackPanel Grid.Column="1">
                 <DockPanel Margin="10,55,10,0">
-                    <TextBlock Text="Фамилия" VerticalAlignment="Center" FontSize="22" FontWeight="DemiBold" DockPanel.Dock="Top"/>
-                    <TextBlock Text="Отчество" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold" DockPanel.Dock="Bottom"/>
-                    <TextBlock Text="Имя" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold"/>
+                    <TextBlock Text="{Binding SecName}" VerticalAlignment="Center" FontSize="22" FontWeight="DemiBold" DockPanel.Dock="Top"/>
+                    <TextBlock Text="{Binding ThirdName}" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold" DockPanel.Dock="Bottom"/>
+                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold"/>
                 </DockPanel>
                 <DockPanel Margin="10,20,10,0">
-                    <TextBlock Text="Зарплата" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold" DockPanel.Dock="Bottom"/>
-                    <TextBlock Text="Должность" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold"/>
+                    <TextBlock Text="{Binding Salary}" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold" DockPanel.Dock="Bottom"/>
+                    <TextBlock Text="{Binding Post}" VerticalAlignment="Center" FontSize="22"  FontWeight="DemiBold"/>
                 </DockPanel>
             </StackPanel>
         </Grid>

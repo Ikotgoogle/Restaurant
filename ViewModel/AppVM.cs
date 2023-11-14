@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -130,6 +131,21 @@ namespace Restaurant.ViewModel
                 return deleteDish ?? 
                     (deleteDish = new RelayCommand(obj => {
                     selectedTable.Dishes.Remove(obj as Dish); selectedTable.Bill -= (obj as Dish).DishPrice; }));
+            }
+        }
+
+        private RelayCommand result;
+        public RelayCommand Result
+        {
+            get
+            {
+                return result ??
+                    (
+                    result = new RelayCommand(obj =>
+                    {
+                        Result resultWin = new Result(selectedTable);
+                        resultWin.Show();
+                    }));
             }
         }
 

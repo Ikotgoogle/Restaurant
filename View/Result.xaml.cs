@@ -10,13 +10,11 @@ namespace Restaurant.View
     public partial class Result : Window
     {
 
-        public Result()
+        public Result(Table table)
         {
             InitializeComponent();
-            DataContext = new AppVM();
+            DataContext = table;
         }
-
-
-
+        
     }
 }

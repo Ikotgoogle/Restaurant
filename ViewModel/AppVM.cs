@@ -33,7 +33,7 @@ namespace Restaurant.ViewModel
             get => selectedWaiter;
             set { selectedWaiter = value; OnPropertyChanged(nameof(SelectedWaiter)); }
         }
-
+        
         private Table selectedTable;
         public Table SelectedTable
         {
@@ -41,6 +41,7 @@ namespace Restaurant.ViewModel
             set { selectedTable = value; OnPropertyChanged(nameof(SelectedTable)); OnPropertyChanged(nameof(DishList)); }
         }
         #endregion
+
         #region Searching 
         private string findingDishText;
         public string FindingDishText
@@ -67,20 +68,8 @@ namespace Restaurant.ViewModel
         public string AddingDishText
         {
             get => addingDishText;
-            set { addingDishText = value; OnPropertyChanged(nameof(AddingDishText)); }
+            set { addingDishText = value; OnPropertyChanged(nameof(AddingDishText)); OnPropertyChanged(nameof(FoundDishToAdd)); }
         }
-
-       /* public int NumsPerson{
-            get{
-                if (selectedTable != null){
-                    return selectedTable.VisitorNum;
-                }
-                else return 0;
-            }
-            set{
-                selectedTable.VisitorNum = value;
-            }
-        }*/
 
         public ObservableCollection<Dish> FoundDishes{
             get{
@@ -109,7 +98,7 @@ namespace Restaurant.ViewModel
         public ObservableCollection<Dish> FoundDishToAdd{
             get{
                 if (addingDishText != null){
-                    return new ObservableCollection<Dish>(Dishes.Where(dish => dish.ToString().IndexOf(FindingDishText, System.StringComparison.OrdinalIgnoreCase) >= 0));
+                    return new ObservableCollection<Dish>(Dishes.Where(dish => dish.ToString().IndexOf(AddingDishText, System.StringComparison.OrdinalIgnoreCase) >= 0));
                 } else return Dishes;
             }
         }
@@ -122,7 +111,8 @@ namespace Restaurant.ViewModel
             }
         }
         #endregion
-        #region commands
+
+        #region Commands
 
         private RelayCommand addDish;
         public RelayCommand AddDish{
@@ -130,19 +120,21 @@ namespace Restaurant.ViewModel
                 return addDish ??
                     (addDish = new RelayCommand(obj => {
                         if (selectedTable == null) { MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning); }
-                        else { selectedTable.Dishes.Add(obj as Dish); }}));
+                        else { selectedTable.Dishes.Add(obj as Dish); selectedTable.Bill += (obj as Dish).DishPrice; }}));
             }
         }
 
         private RelayCommand deleteDish;
         public RelayCommand DeleteDish{
             get {
-                return deleteDish ?? (deleteDish = new RelayCommand(obj => {
-                    selectedTable.Dishes.Remove(obj as Dish); }));
+                return deleteDish ?? 
+                    (deleteDish = new RelayCommand(obj => {
+                    selectedTable.Dishes.Remove(obj as Dish); selectedTable.Bill -= (obj as Dish).DishPrice; }));
             }
         }
 
         #endregion
+
         #region DataBase
         public AppVM()
         {
@@ -213,5 +205,17 @@ namespace Restaurant.ViewModel
             }
         }
         #endregion
+
+        private double test = 9999;
+        public double Test
+        {
+            get { return test; }
+            set { test = selectedTable.Bill ; OnPropertyChanged(nameof(Test)); }
+        }
+
+
+
+
+
     }
 }

@@ -12,7 +12,7 @@ namespace Restaurant.Model
         private int _id;
         private int _visitorNum;
         private ObservableCollection<Dish> _dishes;
-        private int _bill;
+        private double _bill;
         
         public int Id
         {
@@ -35,7 +35,8 @@ namespace Restaurant.Model
             set { _dishes = value; OnPropertyChanged(nameof(Dishes)); }
         }
 
-        public int Bill{
+        public double Bill
+        {
             get { return _bill; }
             set { _bill = value; OnPropertyChanged(nameof(Bill)); }
         }

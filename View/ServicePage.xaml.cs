@@ -15,12 +15,5 @@ namespace Restaurant.View
             InitializeComponent();
             DataContext = new AppVM();
         }
-
-        /*private void Result_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Result result = new Result();
-
-            result.Show();
-        }*/
     }
 }

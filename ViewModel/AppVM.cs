@@ -144,6 +144,10 @@ namespace Restaurant.ViewModel
                     result = new RelayCommand(obj =>
                     {
                         Result resultWin = new Result(selectedTable);
+                        if (resultWin.DialogResult == true)
+                        {
+                            selectedTable = resultWin.selectedTable;
+                        }
                         resultWin.Show();
                     }));
             }
@@ -221,17 +225,6 @@ namespace Restaurant.ViewModel
             }
         }
         #endregion
-
-        private double test = 9999;
-        public double Test
-        {
-            get { return test; }
-            set { test = selectedTable.Bill ; OnPropertyChanged(nameof(Test)); }
-        }
-
-
-
-
 
     }
 }

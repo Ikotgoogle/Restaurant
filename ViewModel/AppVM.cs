@@ -146,9 +146,11 @@ namespace Restaurant.ViewModel
                         Result resultWin = new Result(selectedTable);
                         if (resultWin.DialogResult == true)
                         {
-                            selectedTable = resultWin.selectedTable;
+                            selectedTable.Dishes = null;
+                            selectedTable.Bill = 0;
+                            MessageBox.Show("Сработало!", "WARNING!");
                         }
-                        resultWin.Show();
+                        resultWin.ShowDialog();
                     }));
             }
         }

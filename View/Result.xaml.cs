@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using Restaurant.Model;
 using Restaurant.View.Command;
 using Restaurant.ViewModel;
@@ -17,20 +18,18 @@ namespace Restaurant.View
             InitializeComponent();
             selectedTable = table;
             DataContext = selectedTable;
-            qwe.DataContext = new RezulsCommand();
+            qwe.DataContext = new ResultCommand() { ContentCtrl = new ContentControl() };
+
+            var test = qwe.DataContext as ResultCommand;
+            test.Bill = selectedTable.Bill;
+            ResultCommand resultCommand = qwe.DataContext as ResultCommand;
+            resultCommand.ContentCtrl = new CashPage() { DataContext = resultCommand };
         }
+
 
         public void makeResut(Object sender, EventArgs e)
         {
             DialogResult = true;
         }
-
-        private double _bill;
-        public double Bill
-        {
-            get => _bill;
-            set { _bill = value; }
-        }
-        
     }
 }

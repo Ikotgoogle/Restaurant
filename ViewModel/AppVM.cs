@@ -201,6 +201,7 @@ namespace Restaurant.ViewModel
             };
         }
         #endregion
+
         #region SetUpPage
         private ContentControl contentCtrl;
         public ContentControl ContentCtrl

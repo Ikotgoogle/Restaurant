@@ -29,16 +29,11 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="MenuButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="MenuButton">
-                
-            </Button>
-            <Button x:Name="PersonalButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="PersonalButton" Grid.Row="1" >
-                
-            </Button>
-            <Button x:Name="TablesButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="TablesButton" Grid.Row="2">
-                
-            </Button>
             
+            <Button x:Name="MenuButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="MenuButton"/>
+            <Button x:Name="PersonalButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="PersonalButton" Grid.Row="1"/>
+            <Button x:Name="TablesButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="TablesButton" Grid.Row="2"/>
+
         </Grid>
 
         <ContentControl Grid.Column="1" x:Name="CntntCntrl" Content="{Binding ContentCtrl, UpdateSourceTrigger=PropertyChanged}"/>

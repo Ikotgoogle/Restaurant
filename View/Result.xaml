@@ -7,19 +7,35 @@
         mc:Ignorable="d"
         Title="Result" Height="450" Width="800">
     
-    <Grid Name="qwe">
-        <StackPanel Name="buttonCommand" VerticalAlignment="Center">
+    <Grid Name="main">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Button x:Name="Cash" Width="220" Height="50" Margin="0,0,0,25" 
-                    Content="Наличный" FontSize="30" FontWeight="Medium"
-                    Command="{Binding SetUpPage}" CommandParameter="Cash"
-                    />
-            
+                Content="Наличный" FontSize="30" FontWeight="Medium"
+                Command="{Binding SetUpPage}" CommandParameter="Cash"/>
+
             <Button x:Name="NonCash" Width="220" Height="50" 
-                    Content="Безналичный" FontSize="30" FontWeight="Medium"
-                    Command="{Binding SetUpPage}" CommandParameter="NonCash" 
-                    />
+                Content="Безналичный" FontSize="30" FontWeight="Medium"
+                Command="{Binding SetUpPage}" CommandParameter="NonCash" 
+                Grid.Row="1"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.18*"/>
+            </Grid.RowDefinitions>
+
             <ContentControl  Content="{Binding ContentCtrl, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Width="200" Height="100" Content="Рассчет" Click="makeResut"/>
-        </StackPanel>
+            <Button Width="500" Margin="10" Content="Рассчет" Click="makeResut" Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Window>

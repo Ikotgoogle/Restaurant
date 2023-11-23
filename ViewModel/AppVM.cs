@@ -144,13 +144,12 @@ namespace Restaurant.ViewModel
                     result = new RelayCommand(obj =>
                     {
                         Result resultWin = new Result(selectedTable);
+                        resultWin.ShowDialog();
                         if (resultWin.DialogResult == true)
                         {
-                            selectedTable.Dishes = null;
+                            selectedTable.Dishes.Clear();
                             selectedTable.Bill = 0;
-                            MessageBox.Show("Сработало!", "WARNING!");
                         }
-                        resultWin.ShowDialog();
                     }));
             }
         }

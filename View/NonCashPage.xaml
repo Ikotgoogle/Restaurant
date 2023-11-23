@@ -9,8 +9,11 @@
     <Grid Background="DarkCyan">
         <StackPanel>
             
-        <Label> NONCASH </Label>
-        <Label Content="{Binding Bill}"/>
+            <Label> NONCASH </Label>
+            <Label> NUM </Label>
+            <Label Content="{Binding TableNum}"/>
+            <Label> BILL </Label>
+            <Label Content="{Binding Bill}"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -23,7 +23,11 @@
                 get{
                     return setUpPage ?? (setUpPage = new RelayCommand(obj =>
                     {
-                        if ((obj as string) == "NonCash") ContentCtrl = new NonCashPage() { };
+                        if ((obj as string) == "NonCash")
+                        {
+                            ContentCtrl = new NonCashPage() { };
+                            
+                        }
                         if ((obj as string) == "Cash") ContentCtrl = new CashPage();
                     }));
                 }
@@ -33,6 +37,13 @@
         public double Bill{
             get => _bill;
             set { _bill = value; OnPropertyChanged(nameof(Bill)); }
+        }
+
+        private int _tableNum;
+        public int TableNum
+        {
+            get => _tableNum;
+            set { _tableNum = value; OnPropertyChanged(nameof(TableNum)); }
         }
     }
 }

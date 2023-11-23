@@ -18,11 +18,13 @@ namespace Restaurant.View
             InitializeComponent();
             selectedTable = table;
             DataContext = selectedTable;
-            qwe.DataContext = new ResultCommand() { ContentCtrl = new ContentControl() };
+            main.DataContext = new ResultCommand() { ContentCtrl = new ContentControl() };
 
-            var test = qwe.DataContext as ResultCommand;
-            test.Bill = selectedTable.Bill;
-            ResultCommand resultCommand = qwe.DataContext as ResultCommand;
+            var bill = main.DataContext as ResultCommand;
+            bill.Bill = selectedTable.Bill;
+            var num = main.DataContext as ResultCommand;
+            num.TableNum = selectedTable.Id;
+            ResultCommand resultCommand = main.DataContext as ResultCommand;
             resultCommand.ContentCtrl = new CashPage() { DataContext = resultCommand };
         }
 

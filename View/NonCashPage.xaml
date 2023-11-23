@@ -6,14 +6,20 @@
              xmlns:local="clr-namespace:Restaurant.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="DarkCyan">
-        <StackPanel>
-            
-            <Label> NONCASH </Label>
-            <Label> NUM </Label>
+    <Grid Background="LightBlue">
+        <StackPanel Margin="20">
+            <Label Content="БЕЗНАЛИЧНЫЕ" FontSize="40" FontWeight="Medium" HorizontalAlignment="Center"/>
+            <DockPanel HorizontalAlignment="Center">
+                <Label Content="Столик №" FontSize="20" FontWeight="Medium"/>
+                <TextBlock Text="{Binding TableNum}" FontSize="20" FontWeight="Medium"/>
+            </DockPanel>
+
             <Label Content="{Binding TableNum}"/>
-            <Label> BILL </Label>
-            <Label Content="{Binding Bill}"/>
+            <DockPanel>
+                <Label Content="ИТОГО: "/>
+                <TextBlock Text="{Binding Bill}"/>
+            </DockPanel>
+                
         </StackPanel>
     </Grid>
 </UserControl>

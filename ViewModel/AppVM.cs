@@ -148,8 +148,29 @@ namespace Restaurant.ViewModel
                         if (resultWin.DialogResult == true)
                         {
                             selectedTable.Dishes.Clear();
+                            selectedTable.VisitorNum = 0;
                             selectedTable.Bill = 0;
                         }
+                    }));
+            }
+        }
+
+        private RelayCommand addPerson;
+        public RelayCommand AddPerson{
+            get{ return addPerson ??
+                    (
+                    addPerson = new RelayCommand(obj => {
+                        selectedTable.VisitorNum++; 
+                    }));
+            }
+        }
+        
+        private RelayCommand removePerson;
+        public RelayCommand RemovePerson{
+            get{ return removePerson ??
+                    (
+                    removePerson = new RelayCommand(obj => {
+                        if(selectedTable.VisitorNum > 0 ) {  selectedTable.VisitorNum--; }
                     }));
             }
         }

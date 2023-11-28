@@ -6,13 +6,33 @@
              xmlns:local="clr-namespace:Restaurant.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Green">
-        <StackPanel>
-            <Label>CASH</Label>dawdwdawdlmgpskfgm
-            <Label>NUM</Label>
-            <Label Content="{Binding TableNum}"/>
-            <Label>BILL</Label>
-            <Label Content="{Binding Bill}"/>
+    <Grid Background="LightGreen">
+        <StackPanel Margin="20">
+            <Label Content="НАЛИЧНЫЙ" FontSize="40" FontWeight="Medium" HorizontalAlignment="Center"/>
+            <DockPanel HorizontalAlignment="Center">
+                <Label Content="Столик №" FontSize="20" FontWeight="Medium"/>
+                <TextBlock Text="{Binding TableNum}" FontSize="20" FontWeight="Medium" VerticalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="ПОДЫТОГ:" FontSize="14" FontWeight="Medium"/>
+                <TextBlock Text="{Binding Bill}" FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Введите скидку (%):" FontSize="14"/>
+                <TextBox Text="{Binding Discount, UpdateSourceTrigger=PropertyChanged}" Height="20" Width="250" FontSize="14" HorizontalAlignment="Left"/>
+            </DockPanel>
+            <DockPanel Margin="0,20,0,0">
+                <Label Content="ИТОГО:" FontSize="18" FontWeight="Medium"/>
+                <TextBlock Text="{Binding Total}" FontSize="18" FontWeight="Medium" VerticalAlignment="Center"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Полученная сумма:" FontSize="14"/>
+                <TextBox Text="{Binding SumReceived, UpdateSourceTrigger=PropertyChanged}" Height="20" Width="250" FontSize="14" HorizontalAlignment="Left"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Сумма к сдаче:" FontSize="14" FontWeight="Medium"/>
+                <TextBlock Text="{Binding Change, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
+            </DockPanel>
         </StackPanel>
     </Grid>
 </UserControl>

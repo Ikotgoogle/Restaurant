@@ -12,22 +12,30 @@
             <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1.8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="Cash" 
+                FontSize="30" FontWeight="Medium" Height="45" Width="45"
+                Command="{Binding SetUpPage}" CommandParameter="Cash">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/images/wallet.png"/>
+                    </Button.Background>
+                </Button>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button x:Name="Cash" Width="220" Height="50" Margin="0,0,0,25" 
-                Content="Наличный" FontSize="30" FontWeight="Medium"
-                Command="{Binding SetUpPage}" CommandParameter="Cash"/>
-
-            <Button x:Name="NonCash" Width="220" Height="50" 
-                Content="Безналичный" FontSize="30" FontWeight="Medium"
+                <Button x:Name="NonCash" Height="45" Width="45"
+                FontSize="30" FontWeight="Medium"
                 Command="{Binding SetUpPage}" CommandParameter="NonCash" 
-                Grid.Row="1"/>
-        </Grid>
-
+                Grid.Row="1">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/images/card.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Border>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>

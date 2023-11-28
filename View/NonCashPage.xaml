@@ -8,18 +8,24 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="LightBlue">
         <StackPanel Margin="20">
-            <Label Content="БЕЗНАЛИЧНЫЕ" FontSize="40" FontWeight="Medium" HorizontalAlignment="Center"/>
+            <Label Content="БЕЗНАЛИЧНЫЙ" FontSize="40" FontWeight="Medium" HorizontalAlignment="Center"/>
             <DockPanel HorizontalAlignment="Center">
                 <Label Content="Столик №" FontSize="20" FontWeight="Medium"/>
-                <TextBlock Text="{Binding TableNum}" FontSize="20" FontWeight="Medium"/>
+                <TextBlock Text="{Binding TableNum}" FontSize="20" FontWeight="Medium" VerticalAlignment="Center"/>
             </DockPanel>
-
-            <Label Content="{Binding TableNum}"/>
+            
             <DockPanel>
-                <Label Content="ИТОГО: "/>
-                <TextBlock Text="{Binding Bill}"/>
+                <Label Content="ПОДЫТОГ:" FontSize="14" FontWeight="Medium"/>
+                <TextBlock Text="{Binding Bill}" FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
             </DockPanel>
-                
+            <DockPanel>
+                <Label Content="Введите скидку (%):" FontSize="14"/>
+                <TextBox Text="{Binding Discount, UpdateSourceTrigger=PropertyChanged}" Height="20" Width="250" FontSize="14" HorizontalAlignment="Left" PreviewTextInput="TextBox_PreviewTextInput"/>
+            </DockPanel>
+            <DockPanel Margin="0,20,0,0">
+                <Label Content="ИТОГО:" FontSize="18" FontWeight="Medium"/>
+                <TextBlock Text="{Binding Total}" FontSize="18" FontWeight="Medium" VerticalAlignment="Center"/>
+            </DockPanel>
         </StackPanel>
     </Grid>
 </UserControl>

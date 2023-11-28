@@ -12,8 +12,8 @@ namespace Restaurant.Model
         private int _id;
         private int _visitorNum;
         private ObservableCollection<Dish> _dishes;
-        private double _bill;
-        
+        private int _bill;        
+
         public int Id
         {
             get { return _id; }
@@ -35,7 +35,7 @@ namespace Restaurant.Model
             set { _dishes = value; OnPropertyChanged(nameof(Dishes)); }
         }
 
-        public double Bill
+        public int Bill
         {
             get { return _bill; }
             set { _bill = value; OnPropertyChanged(nameof(Bill)); }
@@ -47,4 +47,7 @@ namespace Restaurant.Model
             return $"{Id}";
         }
     }
+
+
+    
 }

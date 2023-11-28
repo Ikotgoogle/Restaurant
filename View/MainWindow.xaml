@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ServeEase" 
         MinHeight="500" MinWidth="700"
-        Height="620" Width="970">
+        Height="620" Width="1040">
     <Window.Resources>
         <Style TargetType="Button" x:Key="Button">
             <Setter Property="Height" Value="35px"/>
@@ -29,10 +29,22 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
-            <Button x:Name="MenuButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="MenuButton"/>
-            <Button x:Name="PersonalButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="PersonalButton" Grid.Row="1"/>
-            <Button x:Name="TablesButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="TablesButton" Grid.Row="2"/>
+
+            <Button x:Name="MenuButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="MenuButton">
+                <Button.Background>
+                    <ImageBrush ImageSource="/images/menu.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="PersonalButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="PersonalButton" Grid.Row="1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/images/staff.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="TablesButton" Style="{StaticResource Button}" Command="{Binding SetUpPage}" CommandParameter="TablesButton" Grid.Row="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="/images/service.png"/>
+                </Button.Background>
+            </Button>
 
         </Grid>
 

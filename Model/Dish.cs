@@ -10,7 +10,7 @@
         private double _dishProtein; // белки
         private double _dishFats; // жиры
         private double _dishCarbs; // углеводы
-        private double _dishPrice;
+        private int _dishPrice;
 
         public int DishId
         {
@@ -60,7 +60,7 @@
             set { _dishCarbs = value; OnPropertyChanged(nameof(DishCarbs)); }
         }
 
-        public double DishPrice
+        public int DishPrice
         {
             get { return _dishPrice; }
             set { _dishPrice = value; OnPropertyChanged(nameof(DishPrice)); }

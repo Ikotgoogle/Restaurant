@@ -139,10 +139,10 @@ namespace Restaurant.ViewModel
         {
             get
             {
-                return result ??
-                    (
-                    result = new RelayCommand(obj =>
-                    {
+                return result ?? (
+                    result = new RelayCommand(obj => {
+                        if (selectedTable == null) { MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
+                        if (selectedTable.Bill == 0) { MessageBox.Show("Невозможно рассчитать!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
                         Result resultWin = new Result(selectedTable);
                         resultWin.ShowDialog();
                         if (resultWin.DialogResult == true)
@@ -160,7 +160,9 @@ namespace Restaurant.ViewModel
             get{ return addPerson ??
                     (
                     addPerson = new RelayCommand(obj => {
-                        selectedTable.VisitorNum++; 
+                        if(selectedTable != null)
+                            selectedTable.VisitorNum++;
+                        else MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }));
             }
         }
@@ -170,7 +172,9 @@ namespace Restaurant.ViewModel
             get{ return removePerson ??
                     (
                     removePerson = new RelayCommand(obj => {
-                        if(selectedTable.VisitorNum > 0 ) {  selectedTable.VisitorNum--; }
+                        if (selectedTable != null && selectedTable.VisitorNum > 0) { selectedTable.VisitorNum--; }
+                        else if (selectedTable != null && selectedTable.VisitorNum == 0) MessageBox.Show("Невозможно удалить гостя!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        else MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }));
             }
         }

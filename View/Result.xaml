@@ -43,7 +43,7 @@
             </Grid.RowDefinitions>
 
             <ContentControl  Content="{Binding ContentCtrl, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Width="500" Margin="10" Content="Рассчет" Click="makeResut" Grid.Row="1"/>
+            <Button Width="500" Margin="10" Content="Расчет" Click="makeResut" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>

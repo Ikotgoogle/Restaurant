@@ -1,17 +1,9 @@
 ﻿using Restaurant.Model;
 using Restaurant.View;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace Restaurant.ViewModel
 {
@@ -139,10 +131,10 @@ namespace Restaurant.ViewModel
         {
             get
             {
-                return result ??
-                    (
-                    result = new RelayCommand(obj =>
-                    {
+                return result ?? (
+                    result = new RelayCommand(obj => {
+                        if (selectedTable == null) { MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
+                        if (selectedTable.Bill == 0) { MessageBox.Show("Невозможно рассчитать!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
                         Result resultWin = new Result(selectedTable);
                         resultWin.ShowDialog();
                         if (resultWin.DialogResult == true)
@@ -160,7 +152,9 @@ namespace Restaurant.ViewModel
             get{ return addPerson ??
                     (
                     addPerson = new RelayCommand(obj => {
-                        selectedTable.VisitorNum++; 
+                        if(selectedTable != null)
+                            selectedTable.VisitorNum++;
+                        else MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }));
             }
         }
@@ -170,7 +164,9 @@ namespace Restaurant.ViewModel
             get{ return removePerson ??
                     (
                     removePerson = new RelayCommand(obj => {
-                        if(selectedTable.VisitorNum > 0 ) {  selectedTable.VisitorNum--; }
+                        if (selectedTable != null && selectedTable.VisitorNum > 0) { selectedTable.VisitorNum--; }
+                        else if (selectedTable != null && selectedTable.VisitorNum == 0) MessageBox.Show("Невозможно удалить гостя!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        else MessageBox.Show("Не выбран столик!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }));
             }
         }
@@ -209,7 +205,7 @@ namespace Restaurant.ViewModel
             };
 
             Tables = new ObservableCollection<Table> {
-                new Table { Id = 0, VisitorNum = 2, Dishes = { Dishes[0], Dishes[7] }, Bill = 0 },
+                new Table { Id = 0, VisitorNum = 0, Dishes = { }, Bill = 0 },
                 new Table { Id = 1, VisitorNum = 0, Dishes = { }, Bill = 0 },
                 new Table { Id = 2, VisitorNum = 0, Dishes = { }, Bill = 0 },
                 new Table { Id = 3, VisitorNum = 0, Dishes = { }, Bill = 0 },
@@ -248,6 +244,5 @@ namespace Restaurant.ViewModel
             }
         }
         #endregion
-
     }
 }

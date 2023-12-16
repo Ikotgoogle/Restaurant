@@ -55,7 +55,7 @@ namespace Restaurant.View.Command
         }
 
         public double Total => _bill - (_discount / 100 * _bill);
-        public double Change => _sumReceived - _bill;
+        public double Change => _sumReceived - Total;
 
     }
 }

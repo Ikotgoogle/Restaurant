@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Restaurant.Model.Dish">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAARAQAAACAAAAEEAAADAAAgEAQIEAIgIQAAAAABAA=</HashCode>
+      <FileName>Model\Dish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restaurant.Model.PropertyChangedClass" Collapsed="true">
+    <Position X="8" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PropertyChangedClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Restaurant.Model.Table">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAEAARAAAAACAAAAAAAAAAQAAAACAA=</HashCode>
+      <FileName>Model\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restaurant.Model.Waiter">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACICAAAAAAAAQEAABAAAQACAAAAABAAABAQAQAAAA=</HashCode>
+      <FileName>Model\Waiter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restaurant.ViewModel.AppVM">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAChRIoIAAAECAAQBASAQMQAAACACBCCAAgUAAAAIUQ=</HashCode>
+      <FileName>ViewModel\AppVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

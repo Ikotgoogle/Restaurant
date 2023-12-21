@@ -190,7 +190,7 @@ namespace Restaurant.ViewModel
                 new Dish{ DishId = 9, DishName = "Больцано", DishDesc = "Баклажаны, помидорки черри, сушеные помидоры, шампиньоны, руккола и апельсиновая заправка", DishType = "Салат", DishCalorie = 167, DishProtein = 2.2, DishFats = 15.8, DishCarbs = 3.6, DishPrice = 330},
                 new Dish{ DishId = 10, DishName = "Палермо", DishDesc = "Креветки, смесь салатов, помидоры, сладкий перец, петрушка, имбирная заправка", DishType = "Салат", DishCalorie = 89, DishProtein = 4.1, DishFats = 6.2, DishCarbs = 4.2, DishPrice = 400},
                 new Dish{ DishId = 11, DishName = "Фокачча с кунжутом", DishDesc = "Моцарелла, оливковое масло, кунжут", DishType = "Хлеб", DishCalorie = 298, DishProtein = 8.6, DishFats = 12.6, DishCarbs = 37.5, DishPrice = 160},
-                new Dish{ DishId = 12, DishName = "Чесночный", DishDesc = "Итальянский хлеб с ароматом чеснока", DishType = "Хлею", DishCalorie = 147, DishProtein = 2.7, DishFats = 14.6, DishCarbs = 1.3, DishPrice = 170},
+                new Dish{ DishId = 12, DishName = "Чесночный", DishDesc = "Итальянский хлеб с ароматом чеснока", DishType = "Хлеб", DishCalorie = 147, DishProtein = 2.7, DishFats = 14.6, DishCarbs = 1.3, DishPrice = 170},
                 new Dish{ DishId = 13, DishName = "Тирамису", DishDesc = "Печенье савоярди, сыр маскарпоне, сливки, кофе", DishType = "Десерт", DishCalorie = 467, DishProtein = 6.6, DishFats = 30.5, DishCarbs = 41.2, DishPrice = 330},
                 new Dish{ DishId = 14, DishName = "Канноли", DishDesc = "Сицилийская трубочка, сыр рикотта, цукаты, фисташки", DishType = "Десерт", DishCalorie =  167, DishProtein = 2.4, DishFats = 13.1, DishCarbs = 9.8, DishPrice = 200}
             };
